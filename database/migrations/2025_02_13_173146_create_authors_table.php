@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_of_author');
             $table->integer('number_of_authors');
-            $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
+            // $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

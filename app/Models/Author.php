@@ -12,11 +12,12 @@ class Author extends Model
     protected $fillable = [
         'name_of_author',
         'number_of_authors',
-        'group_id',
+        // 'group_id',
     ];
-
+    
     public function groups()
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasMany(Group::class, 'author_id');
     }
+    
 }

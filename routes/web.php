@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Group\GroupComponent;
+use App\Livewire\Group\GroupShow;
 use App\Livewire\Home\Start;
+use App\Models\Group;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +18,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get ('/start', Start::class, 'start')->name('start');
 
 Route::get ('/group', GroupComponent::class)->name('group');
+
+Route::get ('/group/{group}', GroupShow::class)->name('group.show');
 
 Route::middleware([
     'auth:sanctum',

@@ -21,6 +21,7 @@ class GroupFactory extends Factory
             'type_group' => fake()->randomElement(['chirigota', 'cuarteto', 'coro', 'comparsa']),
             'number_of_people' => $this->faker->numberBetween(5, 20),
             'place' => $this->faker->city(),
+            'author_id' => \App\Models\Author::factory(),
         ];
     }
 }

@@ -7,6 +7,13 @@
     <meta name="author" content="" />
     <title>Resume - Start Bootstrap Theme</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logoCar.png" />
+
+    {{-- <link rel="stylesheet" href="{{ asset(css/styles.css) }}"> --}}
+    {{--
+    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}"> --}}
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -14,13 +21,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    {{-- <link rel="stylesheet"  href="{{asset('public/css/styles.css')}}" /> --}}
+
 </head>
 <body id="page-top">
 
     <!-- Navigation-->
     @include('components.layouts.partials.navbar')
 
-  
+
 
     <!-- Page Content-->
     <div class="container-fluid p-0">
@@ -47,18 +56,28 @@
 
     <script>
         document.addEventListener('livewire:init', () => {
-            Livewire.on('close-modal', ({ modalId }) => {
-                $('#' + modalId).modal('hide');
+            Livewire.on('close-modal', (idModal) => {
+                $('#' + idModal).modal('hide');
             });
         });
 
+        // document.addEventListener('livewire:init', () => {
+        //     Livewire.on('close-modal', (modalId) => {
+        //         $('#' + modalId).modal('hide');
+        //         $('body').removeClass('modal-open');
+        //         $('.modal-backdrop').remove();
+        //     });
+        // });
+
+
         document.addEventListener('livewire:init', () => {
-            Livewire.on('open-modal', ({ modalId }) => {
-                $('#' + modalId).modal('show');
+            Livewire.on('open-modal', (idModal) => {
+                $('#' + idModal).modal('show');
             });
         });
+
     </script>
-    
+
 
 </body>
 </html>
