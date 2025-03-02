@@ -13,8 +13,7 @@ class Group extends Model
         'name',
         'type_group',
         'number_of_people',
-        'place',
-        'author_id'
+        'place'
     ];
 
     public function dressing_rooms()
@@ -22,14 +21,9 @@ class Group extends Model
         return $this->hasMany(Dressing_room::class);
     }
 
-    // public function authors()
-    // {
-    //     return $this->hasMany(Author::class);
-    // }
-
-    public function author()
+    public function authors()
     {
-        return $this->belongsTo(Author::class, 'author_id');
+        return $this->hasMany(Author::class);
     }
 
     public function type_of_costumes()
@@ -46,5 +40,5 @@ class Group extends Model
     {
         return $this->hasMany(Prop::class);
     }
-
+    
 }

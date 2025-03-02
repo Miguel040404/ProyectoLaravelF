@@ -17,7 +17,6 @@ return new class extends Migration
             $table->enum('type_group', ['chirigota', 'cuarteto', 'coro', 'comparsa']);
             $table->integer('number_of_people');
             $table->string('place');
-            $table->foreignId('author_id')->constrained()->onDelete('cascade'); // Relación con Author
             $table->timestamps();
         });
     }
