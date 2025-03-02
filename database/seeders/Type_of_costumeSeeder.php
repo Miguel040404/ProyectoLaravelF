@@ -14,10 +14,12 @@ class Type_of_costumeSeeder extends Seeder
      */
     public function run(): void
     {
-        Group::all()->each(function ($group) {
-            Type_of_costume::factory()->create([
-                'group_id' => $group->id 
-            ]);
-        });
+        // Group::all()->each(function ($group) {
+        //     Type_of_costume::factory()->create([
+        //         'group_id' => $group->id 
+        //     ]);
+        // });
+
+        Type_of_costume::factory(10)->create();
     }
 }

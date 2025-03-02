@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Author extends Model
 {
@@ -12,14 +12,14 @@ class Author extends Model
     protected $fillable = [
         'name_of_author',
         'number_of_authors',
-        'group_id',
     ];
 
-    public function groups()
+    public function groups(): HasMany
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasMany(Group::class);
     }
 }
+
 
 
 // <?php
@@ -36,12 +36,11 @@ class Author extends Model
 //     protected $fillable = [
 //         'name_of_author',
 //         'number_of_authors',
-//         // 'group_id',
+//         'group_id',
 //     ];
-    
+
 //     public function groups()
 //     {
-//         return $this->hasMany(Group::class, 'author_id');
+//         return $this->belongsTo(Group::class);
 //     }
-    
 // }

@@ -14,10 +14,12 @@ class PropSeeder extends Seeder
      */
     public function run(): void
     {
-        Group::all()->each(function ($group) {
-            Prop::factory()->create([
-                'group_id' => $group->id // Relación con Group
-            ]);
-        });
+        // Group::all()->each(function ($group) {
+        //     Prop::factory()->create([
+        //         'group_id' => $group->id // Relación con Group
+        //     ]);
+        // });
+
+        Prop::factory(10)->create();
     }
 }

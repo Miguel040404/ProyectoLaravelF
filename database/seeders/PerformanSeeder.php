@@ -14,10 +14,12 @@ class PerformanSeeder extends Seeder
      */
     public function run(): void
     {
-        Group::all()->each(function ($group) {
-            Performan::factory()->create([
-                'group_id' => $group->id 
-            ]);
-        });
+        // Group::all()->each(function ($group) {
+        //     Performan::factory()->create([
+        //         'group_id' => $group->id 
+        //     ]);
+        // });
+
+        Performan::factory(10)->create();
     }
 }

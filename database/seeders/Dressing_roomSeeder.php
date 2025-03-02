@@ -14,10 +14,12 @@ class Dressing_roomSeeder extends Seeder
      */
     public function run(): void
     {
-       Group::all()->each(function ($group) {
-           Dressing_room::factory()->create([
-               'group_id' => $group->id
-           ]);
-       });
+    //    Group::all()->each(function ($group) {
+    //        Dressing_room::factory()->create([
+    //            'group_id' => $group->id
+    //        ]);
+    //    });
+
+        Dressing_room::factory(10)->create();
     }
 }

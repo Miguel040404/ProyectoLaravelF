@@ -14,10 +14,12 @@ class AuthorSeeder extends Seeder
      */
     public function run(): void
     {
-        Group::all()->each(function ($group) {
-            Author::factory()->create([
-                'group_id' => $group->id
-            ]);
-        });
+        // Group::all()->each(function ($group) {
+        //     Author::factory()->create([
+        //         'group_id' => $group->id
+        //     ]);
+        // });
+
+        Author::factory(10)->create();
     }
 }
