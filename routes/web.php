@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Author\AuthorComponent;
 use App\Livewire\Group\GroupComponent;
 use App\Livewire\Group\GroupShow;
 use App\Livewire\Home\Start;
@@ -19,7 +20,11 @@ Route::get ('/start', Start::class, 'start')->name('start');
 
 Route::get ('/group', GroupComponent::class)->name('group');
 
-Route::get ('/group/{group}', GroupShow::class)->name('group.show');
+// Route::get ('/group/{group}', GroupShow::class)->name('group.show');
+
+Route::get ('/authors', AuthorComponent::class)->name('authors');
+
+// Route::get ('/authors/{author}', AuthorComponent::class)->name('authors.show');
 
 Route::middleware([
     'auth:sanctum',

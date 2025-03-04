@@ -20,7 +20,7 @@ class PerformanFactory extends Factory
             'date_performan' => $this->faker->date(),
             'day_performan' => $this->faker->randomElement(['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']),
             'stage_performan' => $this->faker->randomElement(['preliminar', 'cuarto', 'semifinal', 'final']),
-            'group_id' => \App\Models\Group::factory(),
+            // 'group_id' => \App\Models\Group::factory(),
         ];
     }
 }

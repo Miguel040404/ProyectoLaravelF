@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_of_company');
             $table->boolean('make-up');
             $table->integer('number_of_costumes');
-            $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
+            // $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -23,6 +23,25 @@
                     </p>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="{{ route('authors') }}" >
+                    {{-- <i class="nav-icon fas fa-th"></i> --}}
+                    <p >
+                        Autores
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="{{ route('authors') }}" >
+                    {{-- <i class="nav-icon fas fa-th"></i> --}}
+                    <p >
+                        Autores
+                    </p>
+                </a>
+            </li>
+
             {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>

@@ -1,11 +1,9 @@
 <div class="tablasContenido p-4 bg-light shadow-lg rounded">
 
-
     <h1 class="text-primary text-center mb-4">AGRUPACIONES</h1>
 
     <div class="d-flex justify-content-end mt-4 mb-3">
-        <a href="#" class="btn btn-primary shadow-sm "
-         data-bs-toggle="modal" data-bs-target="#modalGroup" wire:click='crearNuevo'>
+        <a href="#" class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalGroup" wire:click='crearNuevo'>
             Crear Grupo
         </a>
     </div>
@@ -18,53 +16,50 @@
                     <th>Agrupacion</th>
                     <th>Numero de integrantes</th>
                     <th>Ciudad/Pueblo</th>
+                    <th>Autor</th> 
                     <th width="3%">...</th>
                     <th width="3%">...</th>
                     <th width="3%">...</th>
                 </tr>
-                </x-slot>
+            </x-slot>
 
-                {{-- <tr class="align-middle"> --}}
-
-                @forelse ($groups as $group)
-                <tr class="align-middle">
-                    <td>{{ $group->name }}</td>
-                    <td>{{ $group->type_group }}</td>
-                    <td>{{ $group->number_of_people }}</td>
-                    <td>{{ $group->place }}</td>
-                    <td>
-                        <a href="#" title="Ver" class="btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#viewGroupModal" wire:click='show( {{$group->id}} )'>
-                            <i class="fas fa-eye"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalGroup" wire:click='edit( {{$group->id}} )' title="Editar" class="btn btn-info shadow-sm">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-
-                    </td>
-                    <td>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteGroupModal" wire:click="setDeleteId({{ $group->id }})" title="Eliminar" class="btn btn-danger shadow-sm">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="7" class="text-center text-muted">No hay grupos disponibles.</td>
-                </tr>
-                @endforelse
+            @forelse ($groups as $group)
+            <tr class="align-middle">
+                <td>{{ $group->name }}</td>
+                <td>{{ $group->type_group }}</td>
+                <td>{{ $group->number_of_people }}</td>
+                <td>{{ $group->place }}</td>
+                <td>{{ $group->author->name_of_author }}</td> 
+                <td>
+                    <a href="#" title="Ver" class="btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#viewGroupModal" wire:click='show( {{$group->id}} )'>
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalGroup" wire:click='edit( {{$group->id}} )' title="Editar" class="btn btn-info shadow-sm">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#deleteGroupModal" wire:click="setDeleteId({{ $group->id }})" title="Eliminar" class="btn btn-danger shadow-sm">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="8" class="text-center text-muted">No hay grupos disponibles.</td>
+            </tr>
+            @endforelse
         </x-table>
 
         <x-slot:cardFooter>
             {{ $groups->links()}}
-            </x-slot>
-
+        </x-slot>
     </x-card>
 
     <x-modal modalId="modalGroup" modalTitle="{{ $Id == 0 ? 'Crear Grupo' : 'Editar Grupo' }}">
-        <form wire:submit={{$Id == 0 ? "createGroup" : "update($Id)"}}>
+        <form wire:submit="{{ $Id == 0 ? 'createGroup' : 'update(' . $Id . ')' }}">
             <div class="mb-3">
                 <div class="form-group">
                     <label for="name" class="fw-bold">Nombre</label>
@@ -111,14 +106,27 @@
                 </div>
             </div>
 
+            <div class="mb-3">
+                <div class="form-group">
+                    <label for="author_id" class="fw-bold">Autor</label>
+                    <select class="form-control @error('author_id') is-invalid @enderror" id="author_id" wire:model="author_id">
+                        <option value="" style="color: grey">--Seleccione un autor--</option>
+                        @foreach($authors as $author)
+                            <option value="{{ $author->id }}">{{ $author->name_of_author }}</option>
+                        @endforeach
+                    </select>
+                    @error('author_id')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
             <hr>
 
             <div class="d-flex justify-content-center">
-                {{-- <button class="btn btn-success px-4">{{$Id == 0 ? 'Crear' : 'Editar'}}</button> --}}
                 <button class="btn btn-success px-4" type="submit">
                     {{ $Id == 0 ? 'Crear' : 'Editar' }}
                 </button>
-
             </div>
         </form>
     </x-modal>
@@ -152,8 +160,14 @@
                     <input type="text" class="form-control" id="view_place" wire:model="place" disabled>
                 </div>
             </div>
-        </div>
 
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="view_author" class="fw-bold">Autor</label>
+                    <input type="text" class="form-control" id="view_author" value="{{ $author_id ? $authors->find($author_id)->name_of_author : '' }}" disabled>
+                </div>
+            </div>
+        </div>
     </x-modal>
 
     <x-modal modalId="deleteGroupModal" modalTitle="Eliminar Grupo">
@@ -164,11 +178,8 @@
 
         <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
-
             <button class="btn btn-danger" wire:click="confirmDelete" data-bs-dismiss="modal">Eliminar</button>
-
         </div>
     </x-modal>
-
 
 </div>

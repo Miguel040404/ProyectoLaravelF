@@ -17,7 +17,7 @@ return new class extends Migration
             $table->boolean('lights');
             $table->boolean('background');
             $table->boolean('confetti');
-            $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
+            // $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

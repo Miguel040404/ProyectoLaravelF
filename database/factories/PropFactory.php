@@ -21,7 +21,7 @@ class PropFactory extends Factory
             'lights' => $this->faker->boolean(),
             'background' => $this->faker->boolean(),
             'confetti' => $this->faker->boolean(),
-            'group_id' => \App\Models\Group::factory(),
+            // 'group_id' => \App\Models\Group::factory(),
         ];
     }
 }

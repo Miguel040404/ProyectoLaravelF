@@ -15,6 +15,18 @@ return new class extends Migration {
             $table->string('place');
             $table->unsignedBigInteger('author_id'); 
             $table->foreign('author_id')->references('id')->on('authors');
+
+            $table->unsignedBigInteger('dressing_room_id');
+            $table->foreign('dressing_room_id')->references('id')->on('dressing_rooms');
+
+            $table->unsignedBigInteger('performances_id');
+            $table->foreign('performances_id')->references('id')->on('performen');
+
+            $table->unsignedBigInteger('props_id');
+            $table->foreign('props_id')->references('id')->on('props');
+
+            $table->unsignedBigInteger('type_of_costumes_id');
+            $table->foreign('type_of_costumes_id')->references('id')->on('type_of_costumes');
             $table->timestamps();
         });
     }

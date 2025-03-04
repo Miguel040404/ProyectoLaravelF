@@ -19,7 +19,7 @@ class Dressing_roomFactory extends Factory
         return [
             'number_of_dressing_rooms' => $this->faker->unique()->numberBetween(1, 20),
             'capacity_of_dressing_rooms' => $this->faker->numberBetween(12, 20),
-            'group_id' => \App\Models\Group::factory(),
+            // 'group_id' => \App\Models\Group::factory(),
         ];
     }
 }

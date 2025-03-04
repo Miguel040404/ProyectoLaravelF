@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Performan extends Model
 {
@@ -13,11 +15,11 @@ class Performan extends Model
         'date_performan',
         'day_performan',
         'stage_performan',
-        'group_id',
+        // 'group_id',
     ];
 
-    public function group()
+    public function groups(): HasMany
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasMany(Group::class);
     }
 }

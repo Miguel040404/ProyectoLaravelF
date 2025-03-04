@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('number_of_dressing_rooms');
             $table->integer('capacity_of_dressing_rooms');
-            $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
+            // $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

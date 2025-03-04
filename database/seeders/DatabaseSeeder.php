@@ -39,10 +39,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         
         $this->call(AuthorSeeder::class);
-        $this->call(GroupSeeder::class);
         $this->call(Dressing_roomSeeder::class);
+        $this->call(PerformanSeeder::class);
         $this->call(Type_of_costumeSeeder::class);
         $this->call(PropSeeder::class);
-        $this->call(PerformanSeeder::class);
+
+        $this->call(GroupSeeder::class);
     }
 }

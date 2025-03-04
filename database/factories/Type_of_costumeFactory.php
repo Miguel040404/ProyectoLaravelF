@@ -20,7 +20,7 @@ class Type_of_costumeFactory extends Factory
             'name_of_company' => $this->faker->company(),
             'make-up' => $this->faker->boolean(),
             'number_of_costumes' => $this->faker->numberBetween(12, 20),
-            'group_id' => \App\Models\Group::factory(),
+            // 'group_id' => \App\Models\Group::factory(),
         ];
     }
 }

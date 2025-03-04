@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Type_of_costume extends Model
 {
@@ -13,11 +14,11 @@ class Type_of_costume extends Model
         'name_of_company',
         'make-up',
         'number_of_costumes',
-        'group_id'
+        // 'group_id'
     ];
 
-    public function group()
+    public function groups(): HasMany
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasMany(Group::class);
     }
 }

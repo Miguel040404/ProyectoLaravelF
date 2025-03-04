@@ -49,6 +49,13 @@
             @endif
         </section>
 
+        <!--Autores-->
+        <section class="secciones3">
+            @if (request()->routeIs('authors'))
+            {{$slot}}
+            @endif
+        </section>
+
 
     </div>
     {{-- script --}}

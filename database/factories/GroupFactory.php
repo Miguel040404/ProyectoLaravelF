@@ -19,9 +19,13 @@ class GroupFactory extends Factory
         return [
             'name' => fake()->company(),
             'type_group' => fake()->randomElement(['chirigota', 'cuarteto', 'coro', 'comparsa']),
-            'number_of_people' => $this->faker->numberBetween(5, 20),
+            'number_of_people' => $this->faker->numberBetween(5, 15),
             'place' => $this->faker->city(),
-            'author_id' => 1,
+            'author_id' => $this->faker->numberBetween(1, 10),
+            'dressing_room_id' => $this->faker->numberBetween(1, 10),
+            'performances_id' => $this->faker->numberBetween(1, 10),
+            'props_id' => $this->faker->numberBetween(1, 10),
+            'type_of_costumes_id' => 1,
         ];
     }
 }

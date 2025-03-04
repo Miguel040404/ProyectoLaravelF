@@ -15,13 +15,17 @@ class Group extends Model
         'type_group',
         'number_of_people',
         'place',
-        'author_id', // Asegúrate de que esté incluido para la asignación masiva
+        'author_id',
+        'dressing_room_id',
+        'performances_id',
+        'props_id',
+        'type_of_costumes_id',
     ];
 
 
-    public function dressing_rooms(): HasMany
+    public function dressing_rooms(): BelongsTo
     {
-        return $this->hasMany(Dressing_room::class);
+        return $this->belongsTo(Dressing_room::class);
     }
 
     public function author(): BelongsTo
@@ -29,29 +33,30 @@ class Group extends Model
         return $this->belongsTo(Author::class);
     }
 
-    public function type_of_costumes(): HasMany
+    public function type_of_costumes(): BelongsTo
     {
-        return $this->hasMany(Type_of_costume::class);
+        return $this->belongsTo(Type_of_costume::class);
     }
 
-    public function performances(): HasMany
+    public function performances(): BelongsTo
     {
-        return $this->hasMany(Performan::class);
+        return $this->belongsTo(Performan::class);
     }
 
-    public function props(): HasMany
+    public function props(): BelongsTo
     {
-        return $this->hasMany(Prop::class);
+        return $this->belongsTo(Prop::class);
     }
 }
 
 
 // <?php
-
 // namespace App\Models;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// use Illuminate\Database\Eloquent\Relations\HasMany;
 
 // class Group extends Model
 // {
@@ -61,32 +66,33 @@ class Group extends Model
 //         'name',
 //         'type_group',
 //         'number_of_people',
-//         'place'
+//         'place',
+//         'author_id', // Asegúrate de que esté incluido para la asignación masiva
 //     ];
 
-//     public function dressing_rooms()
+
+//     public function dressing_rooms(): HasMany
 //     {
 //         return $this->hasMany(Dressing_room::class);
 //     }
 
-//     public function authors()
+//     public function author(): BelongsTo
 //     {
-//         return $this->hasMany(Author::class);
+//         return $this->belongsTo(Author::class);
 //     }
 
-//     public function type_of_costumes()
+//     public function type_of_costumes(): HasMany
 //     {
 //         return $this->hasMany(Type_of_costume::class);
 //     }
 
-//     public function performen ()
+//     public function performances(): HasMany
 //     {
 //         return $this->hasMany(Performan::class);
 //     }
 
-//     public function props ()
+//     public function props(): HasMany
 //     {
 //         return $this->hasMany(Prop::class);
 //     }
-    
 // }
