@@ -13,14 +13,15 @@ return new class extends Migration {
             $table->enum('type_group', ['chirigota', 'cuarteto', 'coro', 'comparsa']);
             $table->integer('number_of_people');
             $table->string('place');
+
             $table->unsignedBigInteger('author_id'); 
             $table->foreign('author_id')->references('id')->on('authors');
 
             $table->unsignedBigInteger('dressing_room_id');
             $table->foreign('dressing_room_id')->references('id')->on('dressing_rooms');
 
-            $table->unsignedBigInteger('performances_id');
-            $table->foreign('performances_id')->references('id')->on('performen');
+            // $table->unsignedBigInteger('performances_id');
+            // $table->foreign('performances_id')->references('id')->on('performen');
 
             $table->unsignedBigInteger('props_id');
             $table->foreign('props_id')->references('id')->on('props');

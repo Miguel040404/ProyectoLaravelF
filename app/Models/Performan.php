@@ -11,6 +11,8 @@ class Performan extends Model
 {
     use HasFactory;
 
+    protected $table = 'performen';
+
     protected $fillable = [
         'date_performan',
         'day_performan',
@@ -18,8 +20,8 @@ class Performan extends Model
         // 'group_id',
     ];
 
-    public function groups(): HasMany
-    {
-        return $this->hasMany(Group::class);
-    }
+    // public function groups(): HasMany
+    // {
+    //     return $this->hasMany(Group::class);
+    // }
 }

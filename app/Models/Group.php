@@ -38,10 +38,10 @@ class Group extends Model
         return $this->belongsTo(Type_of_costume::class);
     }
 
-    public function performances(): BelongsTo
-    {
-        return $this->belongsTo(Performan::class);
-    }
+    // public function performances(): BelongsTo
+    // {
+    //     return $this->belongsTo(Performan::class);
+    // }
 
     public function props(): BelongsTo
     {

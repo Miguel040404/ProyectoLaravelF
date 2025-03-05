@@ -23,7 +23,7 @@ class GroupFactory extends Factory
             'place' => $this->faker->city(),
             'author_id' => $this->faker->numberBetween(1, 10),
             'dressing_room_id' => $this->faker->numberBetween(1, 10),
-            'performances_id' => $this->faker->numberBetween(1, 10),
+            // 'performances_id' => $this->faker->numberBetween(1, 10),
             'props_id' => $this->faker->numberBetween(1, 10),
             'type_of_costumes_id' => 1,
         ];

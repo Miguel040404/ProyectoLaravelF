@@ -7,7 +7,7 @@
         </a>
     </div>
 
-    <x-card cardTitle="📌 Autores ({{$authors->total()}})">
+    <x-card cardTitle="✒️ Autores ({{$authors->total()}})">
         <x-table>
             <x-slot:thead>
                 <tr>

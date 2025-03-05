@@ -56,6 +56,12 @@
             @endif
         </section>
 
+        <!--Actuaciones-->
+        {{-- <section class="secciones4">
+            @if (request()->routeIs('actuaciones'))
+            {{$slot}}
+            @endif
+        </section> --}}
 
     </div>
     {{-- script --}}
@@ -84,7 +90,6 @@
         });
 
     </script>
-
 
 </body>
 </html>

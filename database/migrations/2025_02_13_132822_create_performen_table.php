@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('date_performan');
             $table->enum('day_performan', ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']);
-            $table->enum('stage_performan', ['preliminar', 'cuarto', 'semifinal', 'final']);
+            $table->enum('stage_performan', ['preliminar', 'cuartos', 'semifinal', 'final']);
             // $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });

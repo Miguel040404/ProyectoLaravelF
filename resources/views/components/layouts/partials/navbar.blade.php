@@ -37,7 +37,7 @@
                 <a class="nav-link js-scroll-trigger" href="{{ route('authors') }}" >
                     {{-- <i class="nav-icon fas fa-th"></i> --}}
                     <p >
-                        Autores
+                        Actuaciones
                     </p>
                 </a>
             </li>
